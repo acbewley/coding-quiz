@@ -1,9 +1,11 @@
-var startButton = document.querySelector("#answer-1");
-var question = document.querySelector("#question");
+var startButton = document.querySelector("#start-button");
+var introCard = document.querySelector("#intro")
+var questionCard = document.querySelector("#question");
 var answer1 = document.querySelector("#answer-1");
 var answer2 = document.querySelector("#answer-2");
 var answer3 = document.querySelector("#answer-3");
 var answer4 = document.querySelector("#answer-4");
+var timer = document.querySelector("#timer")
 var questions = [
     {
         question: "What coding language is used to create the basic appearance of a webpage?",
@@ -34,15 +36,10 @@ var questions = [
             d: "Python"
         },
     }
-    ];
+];
 
-// startButton.addEventListener("click", function () {
-//     question.textContent = question1.question;
-//     answer2.setAttribute("class", "visible btn btn-info")
-//     answer3.setAttribute("class", "visible btn btn-info")
-//     answer4.setAttribute("class", "visible btn btn-info")
-//     answer1.innerHTML = question1.answer1
-//     answer2.innerHTML = question1.answer2
-//     answer3.innerHTML = question1.answer3
-//     answer4.innerHTML = question1.answer4
-// });
+startButton.addEventListener("click", function() {
+    introCard.setAttribute("class", "d-none");
+    questionCard.setAttribute("class", "card");
+});
+

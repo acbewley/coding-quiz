@@ -3,9 +3,11 @@
     margin-bottom: 100px;
 }
 
-#question {
-    font-size: large;
-    margin: 50px;
+.card {
+    margin: 0 auto;
+    float: none;
+    margin-bottom: 10px;
+    text-align: center;
 }
 
 button {

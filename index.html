@@ -14,13 +14,26 @@
     <header id="title">
         <h1>CODING QUIZ!!!</h1>
     </header>
-    <div id="timer">Time: 0</div>
-    <div class="container shadow p-3 mb-5 bg-white rounded text-center">
-        <div id="question">Welcome! After you click the start button, a one minute timer will begin and you will be asked ten questions. If you answer a question correctly, five seconds will be added to the timer. If you answer a question incorrectly, ten seconds will be removed. The time left after you answer the last question will be your final score. Good luck!</div>
-        <div><button id="answer-1" type="button" class="visible btn btn-info">Begin the quiz</button></div>
-        <div><button id="answer-2" type="button" class="invisible btn btn-info"></button></div>
-        <div><button id="answer-3" type="button" class="invisible btn btn-info"></button></div>
-        <div><button id="answer-4" type="button" class="invisible btn btn-info"></button></div>
+    <div id="timer"></div>
+    <div class="container">
+        <div id="intro" class="card" style="width: 40rem;">
+            <div class="card-body">
+                <h5 class="card-title">Welcome! Click start and the quiz will begin. You will have sixty seconds to
+                    answer ten questions. Answer correctly, and five seconds will be added to the timer. Answer
+                    incorrectly, and five seconds will be removed. Your time remaining will be your final score. Good
+                    luck!</h5>
+                <a id="start-button" class="btn btn-primary">Start</a>
+            </div>
+        </div>
+        <div id="question" class="card invisible" style="width: 40rem;">
+            <div class="card-body">
+                <h5 class="card-title"></h5>
+                <div><a id="answer-1" class="btn btn-primary"></a></div>
+                <div><a id="answer-2" class="btn btn-primary"></a></div>
+                <div><a id="answer-3" class="btn btn-primary"></a></div>
+                <div><a id="answer-4" class="btn btn-primary"></a></div>
+            </div>
+        </div>
     </div>
     <script src="./assets/script.js"></script>
 </body>
