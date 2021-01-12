@@ -25,14 +25,17 @@
                 <a id="start-button" class="btn btn-primary">Start</a>
             </div>
         </div>
-        <div id="question" class="card invisible" style="width: 40rem;">
+        <div id="question" class="card d-none" style="width: 40rem;">
             <div class="card-body">
-                <h5 class="card-title"></h5>
-                <div><a id="answer-1" class="btn btn-primary"></a></div>
-                <div><a id="answer-2" class="btn btn-primary"></a></div>
-                <div><a id="answer-3" class="btn btn-primary"></a></div>
-                <div><a id="answer-4" class="btn btn-primary"></a></div>
+                <h5 id="question-text" class="card-title"></h5>
+                <div id="answers"><a id="answer-1" class="btn btn-primary"></a></div>
+                <div id="answers"><a id="answer-2" class="btn btn-primary"></a></div>
+                <div id="answers"><a id="answer-3" class="btn btn-primary"></a></div>
+                <div id="answers"><a id="answer-4" class="btn btn-primary"></a></div>
             </div>
+        </div>
+        <div>
+            <h5 id="right-wrong"></h5>
         </div>
     </div>
     <script src="./assets/script.js"></script>
