@@ -8,6 +8,7 @@ var answer2 = document.querySelector("#answer-2");
 var answer3 = document.querySelector("#answer-3");
 var answer4 = document.querySelector("#answer-4");
 var timer = document.querySelector("#timer");
+var time = 60
 var rightWrong = document.querySelector("#right-wrong")
 var currentQuestion = 0
 var questions = [
@@ -43,6 +44,11 @@ var questions = [
     }
 ]
 
+function startTimer() {setInterval(function(){
+    timer.textContent = "Time: " + time;
+    time -= 1;
+}, 1000)}
+
 function getQuestions() {
     questionText.textContent = questions[currentQuestion].question
     answer1.textContent = questions[currentQuestion].answer.a
@@ -55,7 +61,7 @@ startButton.addEventListener("click", function () {
     introCard.setAttribute("class", "d-none");
     questionCard.setAttribute("class", "card");
     getQuestions();
-    console.log(questions.length)
+    startTimer();
 });
 
 answer1.addEventListener("click", function () {
