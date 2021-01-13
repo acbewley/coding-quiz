@@ -44,10 +44,22 @@ var questions = [
     }
 ]
 
-function startTimer() {setInterval(function(){
-    timer.textContent = "Time: " + time;
-    time -= 1;
-}, 1000)}
+function startTimer() {
+    if (time > 0 && currentQuestion < (questions.length - 1)) {
+        setInterval(function () {
+            timer.textContent = "Time: " + time;
+            time -= 1;
+        }, 1000)
+    } else if (time <= 0 || currentQuestion >= (questions.length)) {
+        endQuiz()
+    }
+}
+
+function endQuiz() {
+    alert("Final Score: " + time)
+    timer.textContent = ""
+    time = 0
+}
 
 function getQuestions() {
     questionText.textContent = questions[currentQuestion].question
@@ -67,14 +79,16 @@ startButton.addEventListener("click", function () {
 answer1.addEventListener("click", function () {
     if (answer1.textContent === questions[currentQuestion].correct) {
         rightWrong.textContent = "Correct!";
+        time = time + 5
     } else if (answer1.textContent != questions[currentQuestion].correct) {
         rightWrong.textContent = "Wrong!";
+        time = time - 5
     }
     if (currentQuestion < (questions.length - 1)) {
         currentQuestion++;
         getQuestions();
     } else {
-        console.log("done")
+        endQuiz()
     }
 
 })
@@ -82,41 +96,47 @@ answer1.addEventListener("click", function () {
 answer2.addEventListener("click", function () {
     if (answer2.textContent === questions[currentQuestion].correct) {
         rightWrong.textContent = "Correct!";
+        time = time + 5
     } else if (answer2.textContent != questions[currentQuestion].correct) {
         rightWrong.textContent = "Wrong!";
+        time = time - 5
     }
     if (currentQuestion < (questions.length - 1)) {
         currentQuestion++;
         getQuestions();
     } else {
-        console.log("done")
+        endQuiz()
     }
 })
 
 answer3.addEventListener("click", function () {
     if (answer3.textContent === questions[currentQuestion].correct) {
         rightWrong.textContent = "Correct!";
+        time = time + 5
     } else if (answer3.textContent != questions[currentQuestion].correct) {
         rightWrong.textContent = "Wrong!";
+        time = time - 5
     }
     if (currentQuestion < (questions.length - 1)) {
         currentQuestion++;
         getQuestions();
     } else {
-        console.log("done")
+        endQuiz()
     }
 })
 
 answer4.addEventListener("click", function () {
     if (answer4.textContent === questions[currentQuestion].correct) {
         rightWrong.textContent = "Correct!";
+        time = time + 5
     } else if (answer4.textContent != questions[currentQuestion].correct) {
         rightWrong.textContent = "Wrong!";
+        time = time - 5
     }
     if (currentQuestion < (questions.length - 1)) {
         currentQuestion++;
         getQuestions();
     } else {
-        console.log("done")
+        endQuiz()
     }
 })
