@@ -2,10 +2,15 @@ h1 {
     text-align: center;
 }
 
-ul {
-    text-align: center;
+ol {
+    display: table;
+    margin: 0 auto;
+    font-size: 20px;
 }
 
-li {
-    text-align: center;
+#return {
+    position: fixed;
+    top: 0;
+    left: 0;
+    font-size: 20px;
 }

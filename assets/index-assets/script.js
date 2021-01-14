@@ -12,6 +12,9 @@ var time = 60;
 var rightWrong = document.querySelector("#right-wrong");
 var newScore
 var currentQuestion = 0;
+var scoreList = document.querySelector("scores")
+var name
+var highScores = []
 var questions = [
     {
         question: "what the heck",
@@ -45,6 +48,18 @@ var questions = [
     }
 ];
 
+function initScores() {
+    var storedScores = JSON.parse(localStorage.getItem("scores"));
+
+    if (storedScores !== null) {
+        highScores = storedScores;
+    };
+}
+
+function storeScores() {
+    localStorage.setItem("scores", JSON.stringify(highScores))
+}
+
 function getQuestions() {
     questionText.textContent = questions[currentQuestion].question;
     answer1.textContent = questions[currentQuestion].answer.a;
@@ -58,14 +73,22 @@ startButton.addEventListener("click", function () {
     questionCard.setAttribute("class", "card");
     getQuestions();
     startQuiz()
+    initScores()
 });
 
 function startQuiz() {
+    function setScore() {
+        highScores.push(newScore)
+        storeScores()
+    }
+
     function endQuiz() {
-        alert("Final Score: " + time);
+        name = prompt("Your final score is: " + time + ". Enter your name below.")
         clearInterval(setTimer)
         timer.textContent = ""
-        newScore = time
+        newScore = { name: name, time: time }
+        setScore()
+        window.location.replace("./assets/high-scores.html")
     };
 
     var setTimer = setInterval(runTimer, 1000);
@@ -73,7 +96,6 @@ function startQuiz() {
     function runTimer() {
         time -= 1
         timer.textContent = "Time: " + time
-        console.log(time)
         if (time < -1) {
             alert("You ran out of time!")
             clearInterval(setTimer)
