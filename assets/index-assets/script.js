@@ -118,6 +118,7 @@ var questions = [
     }
 ];
 
+// function to grab current score list
 function initScores() {
     var storedScores = JSON.parse(localStorage.getItem("scores"));
 
@@ -126,10 +127,12 @@ function initScores() {
     };
 };
 
+// function to store scores
 function storeScores() {
     localStorage.setItem("scores", JSON.stringify(highScores));
 };
 
+// function to write question to card and answers to buttons
 function getQuestions() {
     questionText.textContent = questions[currentQuestion].question;
     answer1.textContent = questions[currentQuestion].answer.a;
@@ -138,6 +141,7 @@ function getQuestions() {
     answer4.textContent = questions[currentQuestion].answer.d;
 };
 
+// even listener, attached to the start button that hides the intro card, reveals the question card, writes the questions, grabs past scores, and starts the quiz
 startButton.addEventListener("click", function () {
     introCard.setAttribute("class", "d-none");
     questionCard.setAttribute("class", "card");
@@ -146,12 +150,15 @@ startButton.addEventListener("click", function () {
     initScores();
 });
 
+// this is the logic of the quiz itself
 function startQuiz() {
+    //function to add the new score to the score list
     function setScore() {
         highScores.push(newScore);
         storeScores();
     };
 
+    //function to end the quiz once the last question is answered, and sends the user to the high scores screen
     function endQuiz() {
         name = prompt("Your final score is: " + time + ". Enter your name below.");
         clearInterval(setTimer);
@@ -161,8 +168,10 @@ function startQuiz() {
         window.location.replace("./assets/high-scores.html");
     };
 
+    //setting the interval for the timer to one second
     var setTimer = setInterval(runTimer, 1000);
 
+    //function to start timer at 60, decrement by one, and update the on screen timer every second. Also checks to make sure the time hasn't run out yet
     function runTimer() {
         time -= 1;
         timer.textContent = "Time: " + time;
@@ -174,6 +183,7 @@ function startQuiz() {
         };
     };
 
+    // these are the event listeners for the button. they compare the string of the chosen answer to the stated "correct" object, and prints right or wrong/ adds or subtracts time from the timer accordingly. also runs the endQuiz function once the final question has been answered
     answer1.addEventListener("click", function () {
         if (answer1.textContent === questions[currentQuestion].correct) {
             rightWrong.textContent = "Correct!";
