@@ -17,34 +17,104 @@ var name
 var highScores = []
 var questions = [
     {
-        question: "what the heck",
+        question: "What coding language is used to construct the basic look of a webpage?",
         answer: {
-            a: "yep",
-            b: "nope",
-            c: "maybe",
-            d: "whatever, man"
+            a: "JavaScript",
+            b: "HTML",
+            c: "CSS",
+            d: "Python"
         },
-        correct: "nope"
+        correct: "HTML"
     },
     {
-        question: "how the heck?",
+        question: "What coding language is used to style the look of a page, such as font color and element placement?",
         answer: {
-            a: "idk",
-            b: "crazy",
-            c: "wow",
-            d: "hooo"
+            a: "JavaScript",
+            b: "HTML",
+            c: "CSS",
+            d: "Python"
         },
-        correct: "hooo"
+        correct: "CSS"
     },
     {
-        question: "when the heck",
+        question: "What coding language is used to create and manage the behind the scenes functions of a webpage?",
         answer: {
-            a: "then",
-            b: "now",
-            c: "never",
-            d: "forever"
+            a: "JavaScript",
+            b: "HTML",
+            c: "CSS",
+            d: "Python"
         },
-        correct: "never"
+        correct: "JavaScript"
+    },
+    {
+        question: "Which of these headers whould appear to be the biggest in unaltered HTML?",
+        answer: {
+            a: "<h4>",
+            b: "<h3>",
+            c: "<h2>",
+            d: "<h1>"
+        },
+        correct: "<h1>"
+    },
+    {
+        question: "What Bootstrap element is this question and its answers rendered inside of?",
+        answer: {
+            a: "Jumbotron",
+            b: "Navbar",
+            c: "Card",
+            d: "Carousel"
+        },
+        correct: "Card"
+    },
+    {
+        question: "What year was JavaScript created?",
+        answer: {
+            a: "1995",
+            b: "2000",
+            c: "1990",
+            d: "1998"
+        },
+        correct: "1995"
+    },
+    {
+        question: "What was JavaScript called at first?",
+        answer: {
+            a: "Latte",
+            b: "EspressoScript",
+            c: "LiveScript",
+            d: "Mocha"
+        },
+        correct: "Mocha"
+    },
+    {
+        question: "What year was Google Chrome initally launched?",
+        answer: {
+            a: "2010",
+            b: "2008",
+            c: "2006",
+            d: "2005"
+        },
+        correct: "2008"
+    },
+    {
+        question: "What HTML tag would you use to make a numbered list?",
+        answer: {
+            a: "<ul>",
+            b: "<list>",
+            c: "<li>",
+            d: "<ol>",
+        },
+        correct: "<ol>"
+    },
+    {
+        question: "What grade will I recieve on this assignment?",
+        answer: {
+            a: "A",
+            b: "A",
+            c: "A",
+            d: "A"
+        },
+        correct: "A"
     }
 ];
 
@@ -100,8 +170,8 @@ function startQuiz() {
             alert("You ran out of time!")
             clearInterval(setTimer)
             timer.textContent = ""
+            window.location.replace("./assets/high-scores.html")
         }
-        window.location.replace("./assets/high-scores.html")
     };
 
     answer1.addEventListener("click", function () {
