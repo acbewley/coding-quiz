@@ -28,3 +28,10 @@ button {
 #right-wrong {
     text-align: center;
 }
+
+#high-scores {
+    position: fixed;
+    left: 0;
+    top: 0;
+    font-size: 20px;
+}
