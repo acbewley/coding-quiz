@@ -8,13 +8,13 @@ var answer2 = document.querySelector("#answer-2");
 var answer3 = document.querySelector("#answer-3");
 var answer4 = document.querySelector("#answer-4");
 var timer = document.querySelector("#timer");
-var time = 60;
 var rightWrong = document.querySelector("#right-wrong");
-var newScore
+var scoreList = document.querySelector("scores");
+var time = 60;
+var newScore;
 var currentQuestion = 0;
-var scoreList = document.querySelector("scores")
-var name
-var highScores = []
+var name;
+var highScores = [];
 var questions = [
     {
         question: "What coding language is used to construct the basic look of a webpage?",
@@ -124,11 +124,11 @@ function initScores() {
     if (storedScores !== null) {
         highScores = storedScores;
     };
-}
+};
 
 function storeScores() {
-    localStorage.setItem("scores", JSON.stringify(highScores))
-}
+    localStorage.setItem("scores", JSON.stringify(highScores));
+};
 
 function getQuestions() {
     questionText.textContent = questions[currentQuestion].question;
@@ -142,36 +142,36 @@ startButton.addEventListener("click", function () {
     introCard.setAttribute("class", "d-none");
     questionCard.setAttribute("class", "card");
     getQuestions();
-    startQuiz()
-    initScores()
+    startQuiz();
+    initScores();
 });
 
 function startQuiz() {
     function setScore() {
-        highScores.push(newScore)
-        storeScores()
-    }
+        highScores.push(newScore);
+        storeScores();
+    };
 
     function endQuiz() {
-        name = prompt("Your final score is: " + time + ". Enter your name below.")
-        clearInterval(setTimer)
-        timer.textContent = ""
-        newScore = { name: name, time: time }
-        setScore()
-        window.location.replace("./assets/high-scores.html")
+        name = prompt("Your final score is: " + time + ". Enter your name below.");
+        clearInterval(setTimer);
+        timer.textContent = "";
+        newScore = { name: name, time: time };
+        setScore();
+        window.location.replace("./assets/high-scores.html");
     };
 
     var setTimer = setInterval(runTimer, 1000);
 
     function runTimer() {
-        time -= 1
-        timer.textContent = "Time: " + time
+        time -= 1;
+        timer.textContent = "Time: " + time;
         if (time < -1) {
-            alert("You ran out of time!")
-            clearInterval(setTimer)
-            timer.textContent = ""
-            window.location.replace("./assets/high-scores.html")
-        }
+            alert("You ran out of time!");
+            clearInterval(setTimer);
+            timer.textContent = "";
+            window.location.replace("./assets/high-scores.html");
+        };
     };
 
     answer1.addEventListener("click", function () {
@@ -188,8 +188,7 @@ function startQuiz() {
         } else {
             endQuiz();
         };
-
-    })
+    });
 
     answer2.addEventListener("click", function () {
         if (answer2.textContent === questions[currentQuestion].correct) {
@@ -238,6 +237,6 @@ function startQuiz() {
             endQuiz();
         };
     });
-}
+};
 
 
