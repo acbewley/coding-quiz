@@ -101,6 +101,7 @@ function startQuiz() {
             clearInterval(setTimer)
             timer.textContent = ""
         }
+        window.location.replace("./assets/high-scores.html")
     };
 
     answer1.addEventListener("click", function () {
